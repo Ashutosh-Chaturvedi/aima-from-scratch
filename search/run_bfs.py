@@ -1,6 +1,6 @@
 import argparse
 
-from search.uninformed.breadth_first_search import breadth_first_search
+from search.uninformed.bfs import breadth_first_search
 from search.problems.gridworld import GridWorld
 
 def parse_args():

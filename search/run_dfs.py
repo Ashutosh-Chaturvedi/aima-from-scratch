@@ -1,4 +1,4 @@
-from search.uninformed.depth_first_search import depth_first_search
+from search.uninformed.dfs import depth_first_search
 from search.problems.gridworld import GridWorld
 
 def main():

@@ -1,4 +1,4 @@
-from search.uninformed.uniform_cost_search import uniform_cost_search
+from search.uninformed.ucs import uniform_cost_search
 from search.problems.gridworld import GridWorld
 
 def main():
