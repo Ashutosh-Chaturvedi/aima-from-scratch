@@ -40,4 +40,12 @@ class Problem(ABC):
         """
         return 1.0
     
+    def predecessors(self, state):
+        """
+        Return iterable of (prev_state, action) pairs that can lead to the given state. 
+
+        Override if the problem supports backward search.
+        """
+        raise NotImplementedError
+    
     
