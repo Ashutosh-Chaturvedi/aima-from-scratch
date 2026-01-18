@@ -41,3 +41,20 @@ class GridWorld(Problem):
     def goal_test(self, state):
         # print("Checking goal:", state)
         return state == self.goal_state
+    
+    def predecessors(self, state):
+        inverse = {
+            "UP": "DOWN",
+            "DOWN": "UP",
+            "LEFT": "RIGHT",
+            "RIGHT": "LEFT"
+        }
+
+        preds = []
+
+        for action in self.actions(state):
+            inv_action = inverse[action]
+            prev_state = self.result(state, inv_action)
+            preds.append((prev_state, inv_action))
+
+        return preds
