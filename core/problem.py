@@ -48,4 +48,12 @@ class Problem(ABC):
         """
         raise NotImplementedError
     
+    def heuristic(self, state):
+        """
+        Estimated remaining cost from current state to goal state. 
+        
+        Override in problems that supports heuristic.
+        """
+        return 0
+    
     
