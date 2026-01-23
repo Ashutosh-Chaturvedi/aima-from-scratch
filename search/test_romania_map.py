@@ -15,6 +15,7 @@ from search.informed.greedy_best_first import greedy_best_first_search
 from search.informed.astar import astar_search
 from search.informed.weighted_astar import weighted_astar_search
 from search.informed.beam_search import beam_search
+from search.informed.ida_star import ida_star_search
 
 from search.uninformed.bfs import breadth_first_search
 from search.uninformed.dfs import depth_first_search
@@ -118,6 +119,14 @@ else:
 
 print("\nBeam Search (widht = 3):")
 solution = beam_search(problem, beam_width=3)
+if solution:
+    print("Path:", [n.state for n in solution.path()])
+    print("Cost:", solution.path_cost) 
+else:
+    print("No solution found")
+
+print("\nIDA* search: ")
+solution = ida_star_search(problem)
 if solution:
     print("Path:", [n.state for n in solution.path()])
     print("Cost:", solution.path_cost) 
