@@ -22,7 +22,7 @@ def _expand_frontier(frontier, explored_this, explored_other, problem):
 def _expand_backward(frontier, explored_this, explored_other, problem: Problem):
     node = frontier.popleft()
 
-    for prev_state, action in problem.predecessors(node.state):
+    for prev_state, action, _ in problem.predecessors(node.state):
         if prev_state in explored_this:
             continue
 

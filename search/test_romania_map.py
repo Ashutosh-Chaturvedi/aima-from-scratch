@@ -7,6 +7,12 @@ This scrips runs:
 - Greedy BFS
 - A*
 - Weighted A*
+- Memory Bounded:
+    - Beam Search
+    - IDA*
+    - RBFS
+    - SMA*
+- Bidirectional A*
 
 and prints the resulting paths and cost for comparison.
 """
@@ -18,6 +24,8 @@ from search.informed.beam_search import beam_search
 from search.informed.ida_star import ida_star_search
 from search.informed.rbfs import rbfs_search
 from search.informed.sma_star import sma_star_search
+from search.informed.bidirectional_astar import bidirectional_astar_search
+
 
 from search.uninformed.bfs import breadth_first_search
 from search.uninformed.dfs import depth_first_search
@@ -159,4 +167,11 @@ if solution:
 else:
     print("No solution found")
 
+print("\nBidirectional A*:")
+solution = bidirectional_astar_search(problem)
 
+if solution:
+    print("Path:", [n.state for n in solution.path()])
+    print("Cost:", solution.path_cost)
+else:
+    print("No solution found")

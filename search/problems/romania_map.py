@@ -150,6 +150,8 @@ class RomaniaMap(Problem):
         preds = []
         for city, neighbors in self.graph.items():
             if state in neighbors:
-                preds.append((city, state))
-        
+                cost = neighbors[state]
+                action = f"{city}->{state}"
+                preds.append((city, action, cost))
+
         return preds
