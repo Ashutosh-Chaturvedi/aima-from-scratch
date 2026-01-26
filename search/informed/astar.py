@@ -1,14 +1,16 @@
 import heapq
 from core.node import Node
 from core.problem import Problem
+from utils.search_stats import SearchStats
 
 
-def astar_search(problem : Problem) -> Node | None: 
+def astar_search(problem : Problem): 
     """
     A* Search
     f(n) = g(n) + h(n)
     """
 
+    stats = SearchStats()
     frontier = []
     counter = 0
 
@@ -26,13 +28,14 @@ def astar_search(problem : Problem) -> Node | None:
             continue
 
         explored[node.state] = node.path_cost
+        stats.expanded += 1
 
         if problem.goal_test(node.state):
-            return node
+            return node, stats
         
         for child in node.expand(problem):
             counter += 1
             f = child.path_cost + problem.heuristic(child.state)
             heapq.heappush(frontier, (f, counter, child))
 
-    return None
+    return None, stats
