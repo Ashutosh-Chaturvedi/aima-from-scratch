@@ -3,6 +3,7 @@ from search.local_search.hill_climbing import hill_climbing
 from search.local_search.random_restart import random_restart_hill_climbing
 from search.local_search.simulated_annealing import simulated_annealing
 from search.local_search.local_beam_search import local_beam_search
+from search.local_search.genetic_algorithm import genetic_algorithm
 
 n = 8
 problem = NQueens(n)
@@ -23,7 +24,12 @@ state, conflicts = simulated_annealing(problem)
 print("Final state:", state)
 print("Conflicts:", conflicts)
 
-state, conflicts = local_beam_search(problem, k=10000)
+state, conflicts = local_beam_search(problem, k=100)
 
 print("Final state:", state)
+print("Conflicts:", conflicts)
+
+state, conflicts = genetic_algorithm(problem)
+
+print("Final State:", state)
 print("Conflicts:", conflicts)
